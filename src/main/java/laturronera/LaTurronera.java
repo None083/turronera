@@ -13,10 +13,23 @@ import javax.swing.JOptionPane;
 public class LaTurronera {
 
     public static void main(String[] args) {
+        
+        //se declaran las constantes para las operaciones matemáticas
 
-        final double MANOBRAGRUPOUNO = 0.15;
-        final double MANOBRAGRUPODOS = 0.22;
+        final double MANOBRA_M1_T1 = 0.15;
+        final double MANOBRA_M2_T2_P1 = 0.22;
 
+        final double BENEFICIO_M1_M2_P1 = 0.5;
+        final double BENEFICIO_T1_T2 = 0.65;
+
+        final double BENEFICIO_VENTAS = 2500;
+
+        final double LIMITE_INFERIOR = 0.1;
+        final double LIMITE_SUPERIOR = 1;
+
+        //aqui crearé un string con los codigos que se mostrarán con un 
+        //joption y pedirá que elijas uno
+        
         String codigo = JOptionPane.showInputDialog("""
                                                  PRODUCTOS
                                     -------------------------------------
@@ -28,19 +41,25 @@ public class LaTurronera {
                                     
                                     Introduzca un código: 
                                     """);
+        
+        //aquí abro un if en el que si inroduzco uno de los codigos dados
+        //comenzará a calcular lo que me piden
+        //si no es uno de esos codigos aparecerá una ventana diciendo
+        //que no es valido
 
         if (codigo.equalsIgnoreCase("M1")
                 || codigo.equalsIgnoreCase("T1")) {
             String materiaPrima = JOptionPane.showInputDialog(
                     "Introduzca el precio de la materia prima");
             double materiaPrimaDouble = Double.parseDouble(materiaPrima);
-            if (materiaPrimaDouble >= 0.1 && materiaPrimaDouble <= 1) {
+            if (materiaPrimaDouble >= LIMITE_INFERIOR
+                    && materiaPrimaDouble <= LIMITE_SUPERIOR) {
                 if (codigo.equalsIgnoreCase("M1")) {
-                    double costeProduccion
-                            = materiaPrimaDouble + MANOBRAGRUPOUNO;
+                    double costeProduccion = materiaPrimaDouble + MANOBRA_M1_T1;
                     double ventaUnitaria = costeProduccion
-                            + (0.5 * costeProduccion);
-                    double ventasNecesarias = 2500 / (ventaUnitaria - costeProduccion);
+                            + (BENEFICIO_M1_M2_P1 * costeProduccion);
+                    double ventasNecesarias = BENEFICIO_VENTAS
+                            / (ventaUnitaria - costeProduccion);
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
@@ -52,11 +71,11 @@ public class LaTurronera {
                                 """.formatted(costeProduccion,
                                     ventaUnitaria, ventasNecesarias));
                 } else if (codigo.equalsIgnoreCase("T1")) {
-                    double costeProduccion
-                            = materiaPrimaDouble + MANOBRAGRUPOUNO;
+                    double costeProduccion = materiaPrimaDouble + MANOBRA_M1_T1;
                     double ventaUnitaria = costeProduccion
-                            + (0.65 * costeProduccion);
-                    double ventasNecesarias = 2500 / (ventaUnitaria - costeProduccion);
+                            + (BENEFICIO_T1_T2 * costeProduccion);
+                    double ventasNecesarias = BENEFICIO_VENTAS
+                            / (ventaUnitaria - costeProduccion);
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
@@ -81,11 +100,11 @@ public class LaTurronera {
             if (materiaPrimaDouble >= 0.1 && materiaPrimaDouble <= 1) {
                 if (codigo.equalsIgnoreCase("P1")
                         || codigo.equalsIgnoreCase("M2")) {
-                    double costeProduccion
-                            = materiaPrimaDouble + MANOBRAGRUPODOS;
+                    double costeProduccion = materiaPrimaDouble + MANOBRA_M2_T2_P1;
                     double ventaUnitaria = costeProduccion
-                            + (0.5 * costeProduccion);
-                    double ventasNecesarias = 2500 / (ventaUnitaria - costeProduccion);
+                            + (BENEFICIO_M1_M2_P1 * costeProduccion);
+                    double ventasNecesarias = BENEFICIO_VENTAS
+                            / (ventaUnitaria - costeProduccion);
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
@@ -98,11 +117,11 @@ public class LaTurronera {
                                 """.formatted(costeProduccion,
                                     ventaUnitaria, ventasNecesarias));
                 } else if (codigo.equalsIgnoreCase("T2")) {
-                    double costeProduccion
-                            = materiaPrimaDouble + MANOBRAGRUPODOS;
+                    double costeProduccion = materiaPrimaDouble + MANOBRA_M2_T2_P1;
                     double ventaUnitaria = costeProduccion
-                            + (0.65 * costeProduccion);
-                    double ventasNecesarias = 2500 / (ventaUnitaria - costeProduccion);
+                            + (BENEFICIO_T1_T2 * costeProduccion);
+                    double ventasNecesarias = BENEFICIO_VENTAS
+                            / (ventaUnitaria - costeProduccion);
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
