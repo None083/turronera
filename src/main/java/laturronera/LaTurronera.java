@@ -18,8 +18,8 @@ public class LaTurronera {
         final double MANOBRAGRUPODOS = 0.22;
 
         String codigo = JOptionPane.showInputDialog("""
-                                              PRODUCTOS
-                                    ----------------------------
+                                                 PRODUCTOS
+                                    -------------------------------------
                                     M1 - Mantecados de limón
                                     P1 - Polvorones
                                     T1 - Turrón de chocolate
@@ -44,6 +44,8 @@ public class LaTurronera {
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
+                                         M1 - Mantecados de limón
+                                ------------------------------------------------
                                 Coste de producción unitario: %.2f €
                                 Precio de venta unitario: %.2f €
                                 Ventas necesarias para producir beneficio: %.0f
@@ -58,6 +60,8 @@ public class LaTurronera {
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
+                                        T1 - Turrón de chocolate
+                                ------------------------------------------------
                                 Coste de producción unitario: %.2f €
                                 Precio de venta unitario: %.2f €
                                 Ventas necesarias para producir beneficio: %.0f
@@ -85,6 +89,9 @@ public class LaTurronera {
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
+                                            P1 - Polvorones o
+                                            M2 - Mazapanes
+                                ------------------------------------------------
                                 Coste de producción unitario: %.2f €
                                 Precio de venta unitario: %.2f €
                                 Ventas necesarias para producir beneficio: %.0f
@@ -99,6 +106,8 @@ public class LaTurronera {
                     ventasNecesarias = Math.ceil(ventasNecesarias);
                     JOptionPane.showMessageDialog(null,
                             """
+                                           T2 - Turrón clásico
+                                ------------------------------------------------
                                 Coste de producción unitario: %.2f €
                                 Precio de venta unitario: %.2f €
                                 Ventas necesarias para producir beneficio: %.0f
