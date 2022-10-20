@@ -44,16 +44,25 @@ public class LaTurronera {
         
         //aquí abro un if en el que si inroduzco uno de los codigos dados
         //comenzará a calcular lo que me piden
+        //dependiendo del código introducido, pasará a una línea u otra
         //si no es uno de esos codigos aparecerá una ventana diciendo
-        //que no es valido
+        //que no es valido y terminrá el programa
 
         if (codigo.equalsIgnoreCase("M1")
                 || codigo.equalsIgnoreCase("T1")) {
             String materiaPrima = JOptionPane.showInputDialog(
                     "Introduzca el precio de la materia prima");
+            //aquí parseo materia prima a double, y limito la cantidad.
+            //si la cantidad está comprendida en el if, pasará
+            //al if de los cálculos
+            //si no, pasará al else y aparecerá mensaje que diga
+            //que no es correcto y terminrá el programa
             double materiaPrimaDouble = Double.parseDouble(materiaPrima);
             if (materiaPrimaDouble >= LIMITE_INFERIOR
                     && materiaPrimaDouble <= LIMITE_SUPERIOR) {
+                 //en otro if se calcula el coste de produccion
+                 //la venta unitaria, y las ventas necesarias
+                 //y se muestra por pantalla
                 if (codigo.equalsIgnoreCase("M1")) {
                     double costeProduccion = materiaPrimaDouble + MANOBRA_M1_T1;
                     double ventaUnitaria = costeProduccion
@@ -97,6 +106,7 @@ public class LaTurronera {
             String materiaPrima = JOptionPane.showInputDialog(
                     "Introduzca el precio de la materia prima");
             double materiaPrimaDouble = Double.parseDouble(materiaPrima);
+            //este if sirve para dos códigos, porque comparten los mismos datos
             if (materiaPrimaDouble >= 0.1 && materiaPrimaDouble <= 1) {
                 if (codigo.equalsIgnoreCase("P1")
                         || codigo.equalsIgnoreCase("M2")) {
